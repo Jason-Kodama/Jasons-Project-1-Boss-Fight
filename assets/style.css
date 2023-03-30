@@ -1,0 +1,22 @@
+:root{
+    --main-text-color: #e6cda5;
+    --main-text-howver-color: #ad8d0b;
+    
+}
+body {
+    font-family: "Book Antiqua", Georgia, Serif;
+    color:var(--main-text-color);
+}
+a {
+    color: var(--main-text-color);
+    transition: 0.2s;
+}
+a:hover {
+    color: var(--main-text-howver-color);
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    
+}
