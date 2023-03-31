@@ -14,7 +14,9 @@ a {
 a:hover {
     color: var(--main-text-howver-color);
 }
-
+button{
+  transition: 0.2s;
+}
 .bossCard{
   background-color: #2c81f0;
   color: rgb(22, 17, 16);

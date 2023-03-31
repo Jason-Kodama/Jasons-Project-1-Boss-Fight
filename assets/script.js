@@ -4,8 +4,23 @@ fetch('https://eldenring.fanapis.com/api/bosses')
   console.log(boss.results);
 });
 
-
-
+let winnersLosers = {
+    winners: [],
+    losers: []
+}
+if(localStorage.getItem('winnersLosers')){
+    var parsedWinnersLosers = JSON.parse(localStorage.getItem('winnersLosers'));
+    for(let winner of parsedWinnersLosers['winners']){
+        winnersLosers['winners'].push(winner);
+    }
+    for(let loser of parsedWinnersLosers['losers']){
+        winnersLosers['losers'].push(loser);
+    }
+}else{
+    localStorage.setItem('winnersLosers', JSON.stringify({
+        winners: [],
+        losers: []}))
+}
 const cardsContainer = document.querySelector('cards-container');
 
 
@@ -31,3 +46,8 @@ function renderBoss(boss) {
     cardsContainer.appendChild(div)
   })};
 
+$('.winner-button').click(function (e) { 
+    e.preventDefault();
+    winnersLosers['winners'].push($(e.target).parent().data('id'));
+    winnersLosers['losers'].push($(selector).attr('id') === '');
+});
