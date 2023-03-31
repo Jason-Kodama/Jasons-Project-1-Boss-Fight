@@ -52,9 +52,29 @@ button{
   height: 75%;
   border-radius: 4px;
 }
-
-
-
+.winnersCard {
+  display:inline-block;
+  border:solid;
+  border-radius: 12px;
+  padding: 1px;
+  margin: 80px 3px 3px 3px;
+  width: 250px;
+  height: 300px;
+  text-align: center;
+}
+.losersCard {
+  display:inline-block;
+  border:solid;
+  border-radius: 12px;
+  padding: 1px;
+  margin: 3px;
+  width: 250px;
+  height: 300px;
+  text-align:center;
+}
+#clear-button {
+  display:block;
+}
 
 
 
