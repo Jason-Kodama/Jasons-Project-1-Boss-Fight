@@ -30,3 +30,4 @@ function renderBoss(boss) {
     div.appendChild(like)
     cardsContainer.appendChild(div)
   })};
+
