@@ -1,7 +1,13 @@
 fetch('https://eldenring.fanapis.com/api/bosses')
 .then(response => response.json())
 .then(boss => {
-  console.log(boss.results);
+  console.log(boss);
+});
+
+fetch('https://zelda.fanapis.com/api/bosses')
+.then(response => response.json())
+.then(boss => {
+  console.log(boss);
 });
 
 // an object to be stored later
