@@ -61,7 +61,9 @@ button{
   width: 250px;
   height: 300px;
   text-align: center;
+  border-color: black;
 }
+
 .losersCard {
   display:inline-block;
   border:solid;
@@ -71,12 +73,11 @@ button{
   width: 250px;
   height: 300px;
   text-align:center;
+  border-color:black;
 }
 #clear-button {
   display:block;
 }
-
-
 
 footer{
     position: fixed;
