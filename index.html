@@ -17,7 +17,7 @@
     <header>
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <a class="navbar-item" href="https://bulma.io">
+                <a class="navbar-item" href="#">
                     <h1 class="title is-1">
                         <i class="fa-solid fa-khanda"></i>
                         Boss Fight!
@@ -45,40 +45,93 @@
             </div>
         </nav>
     </header>
-
-    <button id = "bossbtn">random</button>
-    <main class="pb-6">
-        <div id = "bossCard1" class ="bossCard" data-id="first">
-            <div id="bossName" class="name">
-                <h3></h3>
+    
+    <main>
+        <div id="boss-cards-container" class="cards-container container is-fluid columns">
+            <div class="boss-card-container column">
+                <div id="boss-card-1" class="card boss-card" data-id="first">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img id="boss-1-img" src="/filler.JPEG" alt="Boss Image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p id="boss-1-name" class="title is-2">Boss Name</p>
+                            </div>
+                        </div>
+                        <div id="boss-1-desc" class="content">
+                            Boss Desc
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <button id="boss1Button" class="winner-button button is-primary is-large">Winner!</button>
+                    </div>
+                </div>
             </div>
-            <img id="bossImage" class = "image1" src="" alt=""></img>
-            <div id="bossDescription" class = "description">
-                <p></p>
+            <div class="boss-card-container column">
+                <div id="boss-card-2" class="card boss-card" data-id="second">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img id="boss-2-img" src="/filler.JPEG" alt="Boss Image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="boss-2-name title is-2">Boss Name</p>
+                            </div>
+                        </div>
+                        <div class="boss-2-desc" class="content">
+                            Boss Desc
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <button id="boss2Button" class="winner-button button is-primary is-large">Winner!</button>
+                    </div>
+                </div>
             </div>
-            <button id="boss1Button" class="winner-button button is-primary is-large">Winner!</button>
         </div>
+        <div id="results-container" class="container">
+            <div class="card-container">
+                <div class="card results-card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-2">Results</p>
+                            </div>
+                        </div>
+                        <div class="content columns">
+                            <div class="winners-card card column">
+                                <div class="media">
+                                    <div class="media-content">
+                                        <p class="title is-4">Winners</p>
+                                    </div>
+                                    <div id="winner-cards" class="card-content">
+                                        <!-- Small winner cards go here -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="losers-card card column">
+                                <div class="media">
+                                    <div class="media-content">
+                                        <p class="title is-4 has-text-centered">Losers</p>
+                                    </div>
+                                    <div id="loser-cards" class="card-content">
+                                        <!-- Small loser cards go here -->
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <button id="clear-button" class="button is-warning">Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container">
 
-        
-        <div id = "bossCard2" class ="bossCard" data-id="second">
-            <div id="bossName02" class="name2">
-                <h3>boss_name</h3>
             </div>
-            <img id="bossImage02" class = "image1" src="/filler.JPEG" alt=""></img>
-            <div id="bossDescription02" class = "description2">
-                <p>"bossInfo"</p>
-            </div>
-            <button id="boss2Button" class="winner-button button is-primary is-large">Winner!</button>
-        </div>
-        <div id="results-container" class="result-card">
-            <div class="winnersCard">
-                <span>Winners</span>
-            </div>
-                
-            <div class="losersCard">
-                <span>Losers</span>
-            </div>
-            <button id="clear-button" class="button is-warning">Clear</button>
         </div>
     </main>
     <footer class="footer pb-6">
