@@ -1,14 +1,5 @@
-fetch('https://eldenring.fanapis.com/api/bosses')
-.then(response => response.json())
-.then(boss => {
-  console.log(boss);
-});
 
-fetch('https://zelda.fanapis.com/api/bosses')
-.then(response => response.json())
-.then(boss => {
-  console.log(boss);
-});
+
 
 // an object to be stored later
 let winnersLosers = {
@@ -32,28 +23,55 @@ if(localStorage.getItem('winnersLosers')){
 }
 const cardsContainer = document.querySelector('cards-container');
 
+//<-----------------BOSS 1-------------------------->
+fetch('https://eldenring.fanapis.com/api/bosses')
+.then(response => response.json())
+.then(boss => {
+  console.log(boss);
+});
 
-function renderBoss(boss) {
-  boss.forEach(boss => {
-    const name  = document.createElement('h3'); 
-    const image = document.createElement('img');
-    const description = document.createElement('p');
-    const div = document.createElement('div');     
-    const like = document.createElement('button');
+var boss = [];
 
-    div.classList = 'card'
-    image.classList = 'card-img'
-    like.classList = 'empty'
-    image.src = boss.image
-    name.innerText = `Name: ${boss.name}`
-    description.innerText =`Description: ${boss.description}`
-    like.textContent = 'like'
-    div.appendChild(image)
-    div.appendChild(name)
-    div.appendChild(description)
-    div.appendChild(like)
-    cardsContainer.appendChild(div)
-  })};
+$("#render-boss").on("click", function(event){
+    event.preventDefault(getBossData();
+});
+
+
+function getBossData(bossName){
+    var queryURL= "https://eldenring.fanapis.com/api/bosses";
+    $("#bossCard").empty();
+    $.ajax({
+    url: queryURL,
+    method: "GET"})
+    .then(function(response){
+        bossName = $("<h3>").text(response.data.name);
+        $("#bossCard").append(bossName);
+        var bossImage = $("<img>").attr("src", response.data.image);
+        $("#bossCard").append(bossImage);
+        var bossDescription = $("<p>").text(response.data.description);
+        $("#bossCard").append(bossDescription);
+        console.log(response)
+    
+    
+    }) 
+console.log(getBossData); }
+
+
+
+//<-----------------BOSS 1-------------------------->
+
+
+
+fetch('https://zelda.fanapis.com/api/bosses')
+.then(response => response.json())
+.then(boss => {
+  console.log(boss);
+});
+
+
+
+
+
 
 // when a winner button is pressed
 $('.winner-button').click(function (e) { 
