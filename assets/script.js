@@ -1,6 +1,4 @@
 
-
-
 // an object to be stored later
 let winnersLosers = {
     winners: [],
@@ -23,21 +21,16 @@ if(localStorage.getItem('winnersLosers')){
 }
 const cardsContainer = document.querySelector('cards-container');
 
-<<<<<<< HEAD
 //<-----------------BOSS 1-------------------------->
 fetch('https://eldenring.fanapis.com/api/bosses')
 .then(response => response.json())
 .then(boss => {
   console.log(boss);
 });
-
 var boss = [];
-
 $("#render-boss").on("click", function(event){
-    event.preventDefault(getBossData();
-});
-
-
+    event.preventDefault(getBossData());
+    
 function getBossData(bossName){
     var queryURL= "https://eldenring.fanapis.com/api/bosses";
     $("#bossCard").empty();
@@ -51,18 +44,13 @@ function getBossData(bossName){
         $("#bossCard").append(bossImage);
         var bossDescription = $("<p>").text(response.data.description);
         $("#bossCard").append(bossDescription);
-        console.log(response)
-    
-    
+        console.log(response)        
     }) 
-console.log(getBossData); }
+console.log(getBossData)};})
+//</-----------------BOSS 1-------------------------->
 
 
-
-//<-----------------BOSS 1-------------------------->
-
-
-
+//<-----------------BOSS 2-------------------------->
 fetch('https://zelda.fanapis.com/api/bosses')
 .then(response => response.json())
 .then(boss => {
@@ -71,7 +59,7 @@ fetch('https://zelda.fanapis.com/api/bosses')
 
 
 
-=======
+
 function renderWinnersLosers(){
   for(let winner of winnersLosers['winners']){
     // 'winner' var should just be the id of the corresponding character
@@ -86,9 +74,6 @@ function renderWinnersLosers(){
     $('.winnersCard').append($(`<div data-id=${loser} class="container small-character-card"><img src=${bossImgURL}></img></div>`));
   }
 }
->>>>>>> 02660881ad56b954705f693cb15a6d3afaabd0f2
-
-
 
 // when a winner button is pressed
 $('.winner-button').click(function (e) { 
