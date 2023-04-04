@@ -22,40 +22,40 @@ if(localStorage.getItem('winnersLosers')){
 const cardsContainer = document.querySelector('cards-container');
 
 //<-----------------BOSS 1-------------------------->
-fetch('https://eldenring.fanapis.com/api/bosses')
-.then(response => response.json())
-.then(boss => {
-  console.log(boss);
+
+
+
+$("#bossbtn").on("click", function(event){
+  console.log("click")
+    event.preventDefault(); 
+ 
+    fetch('https://eldenring.fanapis.com/api/bosses?limit=100')
+    .then(response => response.json())
+    .then(boss => {
+      getBossData(boss);
 });
-var boss = [];
-$("#render-boss").on("click", function(event){
-    event.preventDefault(getBossData());
-    
-function getBossData(bossName){
-    var queryURL= "https://eldenring.fanapis.com/api/bosses";
-    $("#bossCard").empty();
-    $.ajax({
-    url: queryURL,
-    method: "GET"})
-    .then(function(response){
-        bossName = $("<h3>").text(response.data.name);
-        $("#bossCard").append(bossName);
-        var bossImage = $("<img>").attr("src", response.data.image);
-        $("#bossCard").append(bossImage);
-        var bossDescription = $("<p>").text(response.data.description);
-        $("#bossCard").append(bossDescription);
-        console.log(response)        
-    }) 
-console.log(getBossData)};})
+}
+)
+
+function getBossData(data){
+ 
+ var  boss = (data['data'][Math.floor(Math.random()*100)]);
+ 
+      var queryURL= "https://eldenring.fanapis.com/api/bosses?limit=100";
+         $("#bossCard1").empty();    
+            bossName = $("<h3>").text(boss.name);            
+                    $("#bossCard1").append(bossName);
+        var bossImage = $("<img>").attr("src",boss.image);
+        $("#bossCard1").append(bossImage);
+        var bossDescription = $("<p>").text(boss.description);
+        $("#bossCard1").append(bossDescription); 
+  } 
+
 //</-----------------BOSS 1-------------------------->
 
 
 //<-----------------BOSS 2-------------------------->
-fetch('https://zelda.fanapis.com/api/bosses')
-.then(response => response.json())
-.then(boss => {
-  console.log(boss);
-});
+
 
 
 
