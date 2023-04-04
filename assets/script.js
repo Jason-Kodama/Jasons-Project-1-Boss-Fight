@@ -48,26 +48,25 @@ function renderWinnersLosers(){
 }
 
 function renderBoss(boss) {
-  boss.forEach(boss => {
-    const name  = document.createElement('h3'); 
-    const image = document.createElement('img');
-    const description = document.createElement('p');
-    const div = document.createElement('div');     
-    const like = document.createElement('button');
+  fetch(eldenring_url);
+  .then(response => response.json())
+  .then(data => randomBoss.getBoss(data))
 
-    div.classList = 'card'
-    image.classList = 'card-img'
-    like.classList = 'empty'
-    image.src = boss.image
-    name.innerText = `Name: ${boss.name}`
-    description.innerText =`Description: ${boss.description}`
-    like.textContent = 'like'
-    div.appendChild(image)
-    div.appendChild(name)
-    div.appendChild(description)
-    div.appendChild(like)
-    cardsContainer.appendChild(div)
-  })};
+     console.log(data);
+     console.log('${data.name}');
+   }
+     
+static  getBoss(data);
+ const boss = data[Math.floor(Math.random() * data.length)];
+ console.log(boss);
+ const bossCard = document.getElementById('bossCard');
+ bossCard.innerHTML = `
+ <div class="bossCard">
+ <h2>${boss.name}</h2>
+ <img src="${boss.image}" alt="">
+<p>${boss.description}</p>
+</div>`;
+
 
 // when a winner button is pressed
 $('.winner-button').click(function (e) { 
