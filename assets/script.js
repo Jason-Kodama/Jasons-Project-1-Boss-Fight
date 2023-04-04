@@ -1,14 +1,3 @@
-fetch('https://eldenring.fanapis.com/api/bosses')
-.then(response => response.json())
-.then(boss => {
-  console.log(boss);
-});
-
-fetch('https://zelda.fanapis.com/api/bosses')
-.then(response => response.json())
-.then(boss => {
-  console.log(boss);
-});
 
 // an object to be stored later
 let winnersLosers = {
@@ -32,6 +21,45 @@ if(localStorage.getItem('winnersLosers')){
 }
 const cardsContainer = document.querySelector('cards-container');
 
+//<-----------------BOSS 1-------------------------->
+fetch('https://eldenring.fanapis.com/api/bosses')
+.then(response => response.json())
+.then(boss => {
+  console.log(boss);
+});
+var boss = [];
+$("#render-boss").on("click", function(event){
+    event.preventDefault(getBossData());
+    
+function getBossData(bossName){
+    var queryURL= "https://eldenring.fanapis.com/api/bosses";
+    $("#bossCard").empty();
+    $.ajax({
+    url: queryURL,
+    method: "GET"})
+    .then(function(response){
+        bossName = $("<h3>").text(response.data.name);
+        $("#bossCard").append(bossName);
+        var bossImage = $("<img>").attr("src", response.data.image);
+        $("#bossCard").append(bossImage);
+        var bossDescription = $("<p>").text(response.data.description);
+        $("#bossCard").append(bossDescription);
+        console.log(response)        
+    }) 
+console.log(getBossData)};})
+//</-----------------BOSS 1-------------------------->
+
+
+//<-----------------BOSS 2-------------------------->
+fetch('https://zelda.fanapis.com/api/bosses')
+.then(response => response.json())
+.then(boss => {
+  console.log(boss);
+});
+
+
+
+
 function renderWinnersLosers(){
   for(let winner of winnersLosers['winners']){
     // 'winner' var should just be the id of the corresponding character
@@ -46,30 +74,6 @@ function renderWinnersLosers(){
     $('.winnersCard').append($(`<div data-id=${loser} class="container small-character-card"><img src=${bossImgURL}></img></div>`));
   }
 }
-
-function renderBoss(boss) {
-  fetch(eldenring_url);
-  .then(response => response.json())
-  .then(data => randomBoss.getBoss(data))
-
-     console.log(data);
-     console.log('${data.name}');
-   }
-     
-static  getBoss(data);
- const boss = data[Math.floor(Math.random() * data.length)];
- console.log(boss);
- const bossCard = document.getElementById('bossCard');
- bossCard.innerHTML = `
- <div class="bossCard">
- <h2>${boss.name}</h2>
- <img src="${boss.image}" alt="">
-<p>${boss.description}</p>
-</div>`;
-
-document.getElementById('bossbtn').addEventListener('click', () => {
-  this.renderBoss();
- });
 
 // when a winner button is pressed
 $('.winner-button').click(function (e) { 
