@@ -67,6 +67,9 @@ static  getBoss(data);
 <p>${boss.description}</p>
 </div>`;
 
+document.getElementById('bossbtn').addEventListener('click', () => {
+  this.renderBoss();
+ });
 
 // when a winner button is pressed
 $('.winner-button').click(function (e) { 
