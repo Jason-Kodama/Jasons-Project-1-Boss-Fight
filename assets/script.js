@@ -38,12 +38,13 @@ $("#bossbtn").on("click", function(event){
 )
 
 function getBossData(data){
- console.log(data)
-  var boss = data.data[Math.floor(Math.random() * data.length)];
+ 
+ var  boss = (data['data'][Math.floor(Math.random()*100)]);
+ 
       var queryURL= "https://eldenring.fanapis.com/api/bosses?limit=100";
          $("#bossCard1").empty();    
-            bossName = $("<h3>").text(boss.name);
-        $("#bossCard1").append(bossName);
+            bossName = $("<h3>").text(boss.name);            
+                    $("#bossCard1").append(bossName);
         var bossImage = $("<img>").attr("src",boss.image);
         $("#bossCard1").append(bossImage);
         var bossDescription = $("<p>").text(boss.description);
