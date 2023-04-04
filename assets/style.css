@@ -1,7 +1,8 @@
 :root{
     --main-text-color: #e6cda5;
     --main-text-howver-color: #ad8d0b;
-    
+    --parchment-background-color: #FCF5E5;
+    --parchment-dark-background-color: #979280;
 }
 body {
     font-family: "Book Antiqua", Georgia, Serif;
@@ -17,63 +18,19 @@ a:hover {
 button{
   transition: 0.2s;
 }
-.bossCard{
-  background-color: #2c81f0;
-  color: rgb(22, 17, 16);
+main{
+  padding-bottom: 10rem;
+}
+.boss-card{
+  background-color: var(--parchment-background-color);
+  height: 100%;
+}
+.winners-card, .losers-card{
+  border:5px solid var(--parchment-dark-background-color);
   border-radius: 12px;
   padding: 1px;
   margin: 3px;
-  width: auto;
-  height: auto;
-  display: inline-block;
   text-align: center;
-  vertical-align: top;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 5px 0 rgba(0,0,0,0.19);
-}
-
-.bosscard:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 12px 40px 0 rgba(0,0,0,0.19);
-}
-
-.bossCard h3 {
-  font-size: 2em;
-  margin: 0;
-  padding: 0;
-}
-
-.bossCard p {
-  font-size: 1em;
-  margin: 0;
-  padding: 0;
-}
-
-.bossCard img {
-  width: 200px;
-  height: 200px;
-  border-radius: 4px;
-}
-.winnersCard {
-  display:inline-block;
-  border:solid;
-  border-radius: 12px;
-  padding: 1px;
-  margin: 80px 3px 3px 3px;
-  width: 250px;
-  height: 300px;
-  text-align: center;
-  border-color: black;
-}
-
-.losersCard {
-  display:inline-block;
-  border:solid;
-  border-radius: 12px;
-  padding: 1px;
-  margin: 3px;
-  width: 250px;
-  height: 300px;
-  text-align:center;
-  border-color:black;
 }
 #clear-button {
   display:block;
