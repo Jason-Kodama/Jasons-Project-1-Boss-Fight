@@ -101,3 +101,18 @@ $(".boss-img").on('load', function(e){
 	canvasContext.drawImage(e.target, 0, 0, 400, 300)
 	$('#bossImage').attr('src',  canvas.toDataURL(e.target.files[0].type))
 })
+const bossBtn = document.querySelector('.btn');
+const bossContainer = document.querySelector('.boss-card-container');
+const bossContainer2 = document.querySelector('.boss-card-container2')
+bossBtn.addEventListener('click', () => {
+
+    if(bossContainer.style.display === 'none') {
+      bossContainer.style.display  = 'inline-flex';
+    }else if(bossContainer2.style.display ==='none') {
+      bossContainer2.style.display = 'inline-flex'
+    }
+    else {
+      bossContainer.style.display = 'none';
+      bossContainer2.style.display = 'none';
+    }
+  })
