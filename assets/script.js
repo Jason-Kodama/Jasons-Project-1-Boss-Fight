@@ -38,6 +38,22 @@ function getBossData(data) {
 }
 
 //</-----------------BOSS 1-------------------------->
+function getVillianData(data) {
+    // get a random villian from the json
+  var villian = data[Math.floor(Math.random() * 10)];
+//  set the villian image
+$('#boss-2-img').attr('src', villian.images.sm);
+//  set the alt of the image to the name of the villian
+$('#boss-2-img').attr('alt', `Image of ${villian.name}`);
+//  set the villian name
+$('#boss-2-name').text(villian.name);
+//  set the villian description
+ $('#boss-2-desc').text(villian.connections.groupAffiliation);
+ // set the villian id
+ $('#boss-card-2').data('id', villian.id);
+
+};
+
 
 //<-----------------BOSS 2-------------------------->
 
@@ -84,6 +100,27 @@ $(".winner-button").click(function (e) {
         // call getBossData function with this response
         .then((boss) => {
             getBossData(boss);
+        });
+
+
+    // fetch request to get a new villian
+
+    // setting the api key and host
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'fea0e301c7msh89b111c775c3102p173a8bjsn36e3ea9b29f3',
+            'X-RapidAPI-Host': 'superhero-search.p.rapidapi.com'
+        }
+    };
+    // fetch request to get a new villian
+    fetch("https://superhero-search.p.rapidapi.com/api/villains", options)
+        // get the json of the response
+        .then(response => response.json())              
+        // call getVillianData function with this response
+        .then ((villian) => {
+            getVillianData(villian)
+            console.log(villian);
         });
 });
 // when the clear button is pressed
