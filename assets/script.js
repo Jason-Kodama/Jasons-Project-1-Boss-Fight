@@ -34,7 +34,7 @@ function getBossData(data) {
     // set the boss description
 	$('#boss-1-desc').text(boss.description);
     // set the boss id
-	$('#boss-card-1').data('id', boss.id);
+	$('#boss-card-1').data('id', boss.name);
 }
 
 //</-----------------BOSS 1-------------------------->
@@ -50,7 +50,7 @@ $('#boss-2-name').text(villian.name);
 //  set the villian description
  $('#boss-2-desc').text(villian.connections.groupAffiliation);
  // set the villian id
- $('#boss-card-2').data('id', villian.id);
+ $('#boss-card-2').data('id', villian.name);
 
 };
 
@@ -93,6 +93,9 @@ $(".winner-button").click(function (e) {
     );
     // store the updated object into local storage
     localStorage.setItem("winnersLosers", JSON.stringify(winnersLosers));
+
+    document.getElementById("winner-display").text = localStorage.getItem("winners")
+    document.getElementById("loser-display").text = localStorage.getItem("losers")
    
 });
 // when the clear button is pressed
