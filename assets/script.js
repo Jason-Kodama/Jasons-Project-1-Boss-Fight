@@ -93,6 +93,33 @@ $(".winner-button").click(function (e) {
     );
     // store the updated object into local storage
     localStorage.setItem("winnersLosers", JSON.stringify(winnersLosers));
+   
+});
+// when the clear button is pressed
+$("#clear-button").click(function (e) {
+    e.preventDefault();
+    // clear both the winner and loser arrays in the object
+    winnersLosers["winners"] = [];
+    winnersLosers["losers"] = [];
+    // set the localstorage objec to the now empty one
+    localStorage.setItem("winnersLosers", JSON.stringify(winnersLosers));
+});
+$(".boss-img").on('load', function(e){
+	const canvas = document.createElement('canvas');
+	var canvasContext = canvas.getContext('2d');
+	canvasContext.drawImage(e.target, 0, 0, 400, 300)
+	$('#bossImage').attr('src',  canvas.toDataURL(e.target.files[0].type))
+})
+const bossBtn = document.querySelector('.btn');
+const bossContainer = $('.boss-card-container');
+bossBtn.addEventListener('click', () => {
+
+    if(bossContainer.css('display') === 'none') {
+      bossContainer.css('display','inline-flex') 
+    }
+    else {
+      (bossContainer.css('display', 'none'))
+    };
     // fetch request to get a new boss
 	fetch("https://eldenring.fanapis.com/api/bosses?limit=100")
         // get the json of the response
@@ -123,29 +150,5 @@ $(".winner-button").click(function (e) {
             console.log(villian);
         });
 });
-// when the clear button is pressed
-$("#clear-button").click(function (e) {
-    e.preventDefault();
-    // clear both the winner and loser arrays in the object
-    winnersLosers["winners"] = [];
-    winnersLosers["losers"] = [];
-    // set the localstorage objec to the now empty one
-    localStorage.setItem("winnersLosers", JSON.stringify(winnersLosers));
-});
-$(".boss-img").on('load', function(e){
-	const canvas = document.createElement('canvas');
-	var canvasContext = canvas.getContext('2d');
-	canvasContext.drawImage(e.target, 0, 0, 400, 300)
-	$('#bossImage').attr('src',  canvas.toDataURL(e.target.files[0].type))
-})
-const bossBtn = document.querySelector('.btn');
-const bossContainer = $('.boss-card-container');
-bossBtn.addEventListener('click', () => {
 
-    if(bossContainer.css('display') === 'none') {
-      bossContainer.css('display','inline-flex') 
-    }
-    else {
-      (bossContainer.css('display', 'none'))
-    }
-})
+
