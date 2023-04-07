@@ -102,17 +102,13 @@ $(".boss-img").on('load', function(e){
 	$('#bossImage').attr('src',  canvas.toDataURL(e.target.files[0].type))
 })
 const bossBtn = document.querySelector('.btn');
-const bossContainer = document.querySelector('.boss-card-container');
-const bossContainer2 = document.querySelector('.boss-card-container2')
+const bossContainer = $('.boss-card-container');
 bossBtn.addEventListener('click', () => {
 
-    if(bossContainer.style.display === 'none') {
-      bossContainer.style.display  = 'inline-flex';
-    }else if(bossContainer2.style.display ==='none') {
-      bossContainer2.style.display = 'inline-flex'
+    if(bossContainer.css('display') === 'none') {
+      bossContainer.css('display','inline-flex') 
     }
     else {
-      bossContainer.style.display = 'none';
-      bossContainer2.style.display = 'none';
+      (bossContainer.css('display', 'none'))
     }
-  })
+})
