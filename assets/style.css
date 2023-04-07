@@ -42,3 +42,32 @@ footer{
     width: 100%;
     
 }
+.btn-container {
+  display:flex;
+  height: 600px;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  height: 80px;
+  line-height: 80px;
+  width: 80px;
+  font-size: 2em;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: red;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+  transition-duration: .8s;
+}
+.btn:hover {
+  background-color: black;
+  color:red;
+}
+.boss-card-container {
+  display:none;
+}
+.boss-card-container2 {
+  display:none;
+}
