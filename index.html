@@ -165,5 +165,11 @@
         crossorigin="anonymous">
     </script>
     <script src="assets/script.js"></script>
+    <script>
+        localStorage.setItem("winners", JSON.stringify(winner))
+        document.getElementById('winner-display').innerHTML = localStorage.getItem('winner');
+        localStorage.setItem("losers", JSON.stringify(losers))
+        document.getElementById('loser-display').innerHTML = localStorage.getItem('losers');
+    </script>
 </body>
 </html>

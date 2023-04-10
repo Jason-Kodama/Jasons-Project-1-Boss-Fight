@@ -94,8 +94,14 @@ $(".winner-button").click(function (e) {
     // store the updated object into local storage
     localStorage.setItem("winnersLosers", JSON.stringify(winnersLosers));
 
-    document.getElementById("winner-display").text = localStorage.getItem("winners")
-    document.getElementById("loser-display").text = localStorage.getItem("losers")
+    document.setElementById("winner-display").text = localStorage.getItem("winners")
+    document.setElementById("loser-display").text = localStorage.getItem("losers")
+
+    window.localStorage.getItem("winners")
+    window.localStorage.getItem("losers")
+    JSON.parse(window.localStorage.getItem('winners'));
+    JSON.parse(window.localStorage.getItem('losers'));
+    
    
 });
 // when the clear button is pressed
