@@ -50,7 +50,7 @@ N/A
  - [Bulma](https://bulma.io/)
  - [Font Awesome](https://fontawesome.com/)
  - [Elden Ring API](https://github.com/deliton/eldenring-api/)
- - [Magic The Gathering - Developers](https://api.magicthegathering.io/v1/cards)
+ - [SuperHero Search API](https://rapidapi.com/jakash1997/api/superhero-search)
 
 [Back To The Top](#boss-fight)
 
