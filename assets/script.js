@@ -93,10 +93,25 @@ $(".winner-button").click(function (e) {
     );
     // store the updated object into local storage
     localStorage.setItem("winnersLosers", JSON.stringify(winnersLosers));
+    
+    //create object to display code
+    var results = JSON.parse(localStorage.getItem("winnersLosers"));
+    //console.log(results)
+    var winnerdisplay = document.getElementById('winner-display')
+    var loserdisplay = document.getElementById('loser-display')
+    var wArray = results.winners
+    var lArray = results.losers
+wArray.forEach(winner =>{
+    var wName = document.createElement("li")
+    wName.textContent = winner
+    winnerdisplay.append(wName)
+})
+lArray.forEach(loser =>{
+    var lName = document.createElement("li")
+    lName.textContent = loser
+    loserdisplay.append(lName)
+})
 
-    document.getElementById("winner-display").text = localStorage.getItem("winners")
-    document.getElementById("loser-display").text = localStorage.getItem("losers")
-   
 });
 // when the clear button is pressed
 $("#clear-button").click(function (e) {
@@ -153,5 +168,4 @@ bossBtn.addEventListener('click', () => {
             console.log(villian);
         });
 });
-
 
