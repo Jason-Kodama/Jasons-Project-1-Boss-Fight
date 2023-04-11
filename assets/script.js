@@ -39,8 +39,10 @@ function getBossData(data) {
 
 //</-----------------BOSS 1-------------------------->
 function getVillianData(data) {
+    console.log(data)
     // get a random villian from the json
   var villian = data[Math.floor(Math.random() * 10)];
+  console.log(data)
 //  set the villian image
 $('#boss-2-img').attr('src', villian.images.sm);
 //  set the alt of the image to the name of the villian
