@@ -61,28 +61,26 @@ $('#boss-2-desc-base').text(`${villian.work.base}`);
 };
 
 //<-----------------BOSS 2-------------------------->
-
-function renderWinnersLosers() {
-    for (let winner of winnersLosers["winners"]) {
-        // 'winner' var should just be the id of the corresponding character
-        // from this id we render an image and styling will be handled in css
-        let bossImgURL = "";
-        let smallCharacterCard;
-        $(".winnersCard").append(
-            $(
-                `<div data-id=${winner} class="container small-character-card"><img src=${bossImgURL}></img></div>`
-            )
-        );
-    }
-    for (let loser of winnersLosers["losers"]) {
-        let bossImgURL = "";
-        let smallCharacterCard;
-        $(".winnersCard").append(
-            $(
-                `<div data-id=${loser} class="container small-character-card"><img src=${bossImgURL}></img></div>`
-            )
-        );
-    }
+function renderWinnersLosers(){
+    //create object to display code
+    var results = JSON.parse(localStorage.getItem("winnersLosers"));
+    //console.log(results)
+    var winnerdisplay = document.getElementById('winner-display')
+    var loserdisplay = document.getElementById('loser-display')
+    winnerdisplay.textContent = '';
+    loserdisplay.textContent = '';
+    var wArray = results.winners
+    var lArray = results.losers
+wArray.forEach(winner =>{
+    var wName = document.createElement("li")
+    wName.textContent = winner
+    winnerdisplay.append(wName)
+})
+lArray.forEach(loser =>{
+    var lName = document.createElement("li")
+    lName.textContent = loser
+    loserdisplay.append(lName)
+})
 }
 
 // when a winner button is pressed
@@ -98,24 +96,8 @@ $(".winner-button").click(function (e) {
     );
     // store the updated object into local storage
     localStorage.setItem("winnersLosers", JSON.stringify(winnersLosers));
+    renderWinnersLosers();
     
-    //create object to display code
-    var results = JSON.parse(localStorage.getItem("winnersLosers"));
-    //console.log(results)
-    var winnerdisplay = document.getElementById('winner-display')
-    var loserdisplay = document.getElementById('loser-display')
-    var wArray = results.winners
-    var lArray = results.losers
-wArray.forEach(winner =>{
-    var wName = document.createElement("li")
-    wName.textContent = winner
-    winnerdisplay.append(wName)
-})
-lArray.forEach(loser =>{
-    var lName = document.createElement("li")
-    lName.textContent = loser
-    loserdisplay.append(lName)
-})
 
 });
 // when the clear button is pressed
@@ -126,6 +108,7 @@ $("#clear-button").click(function (e) {
     winnersLosers["losers"] = [];
     // set the localstorage objec to the now empty one
     localStorage.setItem("winnersLosers", JSON.stringify(winnersLosers));
+    renderWinnersLosers();
 });
 $(".boss-img").on('load', function(e){
 	const canvas = document.createElement('canvas');
