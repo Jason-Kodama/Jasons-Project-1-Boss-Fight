@@ -48,12 +48,15 @@ $('#boss-2-img').attr('alt', `Image of ${villian.name}`);
 //  set the villian name
 $('#boss-2-name').text(villian.name);
 //  set the villian description
- $('#boss-2-desc').text(villian.connections.groupAffiliation);
+ $('#boss-2-desc-fullName').text (`${villian.biography.fullName}`);
+ $('#boss-2-desc-work').text(`${villian.work.occupation}`);
+$('#boss-2-desc-group').text(`${villian.connections.groupAffiliation}`);
+$('#boss-2-desc-base').text(`${villian.work.base}`);
+
  // set the villian id
  $('#boss-card-2').data('id', villian.id);
 
 };
-
 
 //<-----------------BOSS 2-------------------------->
 
