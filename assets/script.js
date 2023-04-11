@@ -39,8 +39,10 @@ function getBossData(data) {
 
 //</-----------------BOSS 1-------------------------->
 function getVillianData(data) {
+    console.log(data)
     // get a random villian from the json
   var villian = data[Math.floor(Math.random() * 10)];
+  console.log(data)
 //  set the villian image
 $('#boss-2-img').attr('src', villian.images.sm);
 //  set the alt of the image to the name of the villian
@@ -157,7 +159,7 @@ bossBtn.addEventListener('click', () => {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'fea0e301c7msh89b111c775c3102p173a8bjsn36e3ea9b29f3',
+            'X-RapidAPI-Key': '9770ba249emsh15a2f51702181dep1be1c5jsn0da5ca3bfa0d',
             'X-RapidAPI-Host': 'superhero-search.p.rapidapi.com'
         }
     };
